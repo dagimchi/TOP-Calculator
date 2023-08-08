@@ -1,0 +1,160 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* This project uses Josh Comeau's modern css reset https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #efc88b;
+}
+
+h1 {
+  font-family: "Gloria Hallelujah", cursive;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+span {
+  color: #36558f;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+.calculator {
+  max-width: 300px;
+  background-color: #050517;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: aliceblue;
+  font-size: 25px;
+}
+
+.screen {
+  width: 100%;
+  height: 60px;
+  background-color: #d4e4bc;
+  font-size: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 15px;
+  border-radius: 5px;
+}
+
+.row-1,
+.row-2,
+.row-3,
+.row-4,
+.row-5 {
+  display: flex;
+  gap: 20px;
+}
+
+.clear {
+  flex: 1;
+}
+
+.divide,
+.multiply,
+.subtract,
+.add,
+.equal {
+  flex-basis: 50px;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+.zero {
+  flex: 2;
+}
+
+.point {
+  flex: 1;
+}
