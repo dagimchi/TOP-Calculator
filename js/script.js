@@ -1,5 +1,4 @@
 let num1, operator, num2;
-// let displayNum;
 let pairEvaluation;
 let numbers = document.querySelectorAll(".target-num");
 let operators = document.querySelectorAll(".target-operator");
@@ -47,8 +46,8 @@ operators.forEach((button) => {
 });
 
 function storePairValue() {
-  let numConverted1 = parseInt(num1);
-  let numConverted2 = parseInt(num2);
+  let numConverted1 = parseFloat(num1);
+  let numConverted2 = parseFloat(num2);
   firstPairValue = operate(operator, numConverted1, numConverted2);
 }
 
@@ -71,8 +70,9 @@ numbers.forEach((button) => {
 });
 
 equal.addEventListener("click", () => {
-  let convertedNum1 = parseInt(num1);
-  let convertedNum2 = parseInt(num2);
+  let convertedNum1 = parseFloat(num1);
+  console.log(convertedNum1);
+  let convertedNum2 = parseFloat(num2);
   pairEvaluation = operate(operator, convertedNum1, convertedNum2);
   display.innerText = Math.round(pairEvaluation * 10) / 10;
   if (convertedNum2 === 0 && operator === "/") {
