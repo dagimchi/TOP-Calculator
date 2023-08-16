@@ -1,12 +1,23 @@
 let num1, operator, num2;
-let displayNum;
+// let displayNum;
 let pairEvaluation;
 let numbers = document.querySelectorAll(".target-num");
 let operators = document.querySelectorAll(".target-operator");
 let display = document.querySelector(".screen");
 let equal = document.querySelector(".equal");
+let clear = document.querySelector(".clear");
 let flag = false;
 let firstPairValue;
+
+clear.addEventListener("click", () => {
+  display.innerText = "";
+  num1 = "";
+  num2 = "";
+  operator = "";
+  pairEvaluation = 0;
+  flag = false;
+  firstPairValue = 0;
+});
 
 operators.forEach((button) => {
   button.addEventListener("click", () => {
@@ -35,6 +46,12 @@ operators.forEach((button) => {
   });
 });
 
+function storePairValue() {
+  let numConverted1 = parseInt(num1);
+  let numConverted2 = parseInt(num2);
+  firstPairValue = operate(operator, numConverted1, numConverted2);
+}
+
 numbers.forEach((button) => {
   button.addEventListener("click", () => {
     if (flag === false) {
@@ -43,13 +60,12 @@ numbers.forEach((button) => {
     } else if (flag === true) {
       display.innerText = button.textContent;
       num2 = display.innerText;
-      let numConverted1 = parseInt(num1);
-      let numConverted2 = parseInt(num2);
-      firstPairValue = operate(operator, numConverted1, numConverted2);
+      storePairValue();
       flag = "continue";
     } else if (flag === "continue") {
       display.innerText += button.textContent;
       num2 = display.innerText;
+      storePairValue();
     }
   });
 });
@@ -58,7 +74,11 @@ equal.addEventListener("click", () => {
   let convertedNum1 = parseInt(num1);
   let convertedNum2 = parseInt(num2);
   pairEvaluation = operate(operator, convertedNum1, convertedNum2);
-  display.innerText = pairEvaluation;
+  display.innerText = Math.round(pairEvaluation * 10) / 10;
+  if (convertedNum2 === 0 && operator === "/") {
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    display.innerText = "lol";
+  }
 });
 
 function operate(operator, num1, num2) {
