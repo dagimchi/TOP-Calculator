@@ -5,8 +5,13 @@ let operators = document.querySelectorAll(".target-operator");
 let display = document.querySelector(".screen");
 let equal = document.querySelector(".equal");
 let clear = document.querySelector(".clear");
+let point = document.querySelector(".point");
 let flag = false;
 let firstPairValue;
+
+point.addEventListener("click", () => {
+  point.disabled = true;
+});
 
 clear.addEventListener("click", () => {
   display.innerText = "";
@@ -16,6 +21,7 @@ clear.addEventListener("click", () => {
   pairEvaluation = 0;
   flag = false;
   firstPairValue = 0;
+  point.disabled = false;
 });
 
 operators.forEach((button) => {
